@@ -54,7 +54,7 @@ variable "net_allowed_ips" {
 
 variable "instance_image_id" {
   type    = string
-  default = "347976f-e269-4357-8691-2fb9ff45b1e1"
+  default = "7347976f-e269-4357-8691-2fb9ff45b1e1"
 }
 
 variable "instance_count" {
@@ -64,15 +64,16 @@ variable "instance_count" {
 
 variable "instance_flavor" {
   type    = string
-  default = "compute1-8"
+  default = "general1-2"
 }
 
 variable "instance_boot_volume_size" {
   type    = number
-  default = 80
+  default = 10
 }
 
 variable "instance_ssh_public_keys" {
   description = "List of public SSH keys"
   type    = list(string)
+
 }

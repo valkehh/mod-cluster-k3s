@@ -20,3 +20,4 @@ locals {
 # locals {
 #   ansible_hosts = merge(module.instances.hosts, module.bastion.hosts)
 # }
+

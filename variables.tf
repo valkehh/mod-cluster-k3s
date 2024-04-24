@@ -64,7 +64,7 @@ variable "instance_count" {
 
 variable "instance_flavor" {
   type    = string
-  default = "general1-2"
+  default = "general1-1"
 }
 
 variable "instance_boot_volume_size" {

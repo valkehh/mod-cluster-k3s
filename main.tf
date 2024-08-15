@@ -1,5 +1,5 @@
 module "network" {
-  source = "git::https://github.com/valkehh/o7k-modules-tf.git//network?ref=1.0.1"
+  source = "../O7K-MODULES-TF/network"
   network_prefix = local.cluster_full_friendly_name
   external_network = var.net_external_network
   internal_router = var.net_internal_router
@@ -8,7 +8,7 @@ module "network" {
 }
 
 module "bastion" {
-  source = "git::https://github.com/valkehh/o7k-modules-tf.git//instance?ref=1.0.1"
+  source = "../O7K-MODULES-TF/instance"
   instance_name = "${local.cluster_full_friendly_name}-bastion"
   instance_metadata = {
     node_type = "bastion"
@@ -26,19 +26,19 @@ module "bastion" {
 }
 
 module "bastion_fip" {
-  source = "git::https://github.com/valkehh/o7k-modules-tf.git//fip?ref=1.0.1"
+  source = "../O7K-MODULES-TF/fip"
   port_id = module.bastion.port_id
   fip_pool = "public-network"
 }
 
 module "bastion_sec_group_ssh" {
-  source = "git::https://github.com/valkehh/o7k-modules-tf.git//sec-ssh?ref=1.0.1"
+  source = "../O7K-MODULES-TF/sec-ssh"
   name = module.bastion.hostname
   allowed_ips = var.net_allowed_ips
 }
 
 module "k3s_instances" {
-  source = "git::https://github.com/valkehh/o7k-modules-tf.git//instance?ref=1.0.1"
+  source = "../O7K-MODULES-TF/instance"
   count  = var.instance_count
 
   instance_name = "${local.cluster_full_friendly_name}-${count.index + 1}"

@@ -10,7 +10,7 @@ variable "cluster_role" {
 
 variable "cluster_site" {
   type    = string
-  default = "hell1"
+  default = "abbe1"
 }
 
 variable "net_external_network" {
@@ -59,7 +59,7 @@ variable "instance_image_id" {
 
 variable "instance_count" {
   type    = number
-  default = 3
+  default = 2
 }
 
 variable "instance_flavor" {
@@ -72,8 +72,12 @@ variable "instance_boot_volume_size" {
   default = 10
 }
 
+variable "controlplane_flavor" {
+  type    = string
+  default = "general1-2"
+}
+
 variable "instance_ssh_public_keys" {
   description = "List of public SSH keys"
   type    = list(string)
-
 }
